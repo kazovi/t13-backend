@@ -33,12 +33,12 @@ app.post("/users", async (req, res) => {
     const order = new CustomerDetail(req.body);
     const savedOrder = await order.save();
 
-    // await axios.post("https://app.nativenotify.com/api/notification", {
-    //   appId: process.env.NATIVENOTIFY_APP_ID,
-    //   appToken: process.env.NATIVENOTIFY_APP_TOKEN,
-    //   title: "Order Received",
-    //   body: `Order recieved process it`,
-    // });
+     await axios.post("https://app.nativenotify.com/api/notification", {
+       appId: process.env.NATIVENOTIFY_APP_ID,
+       appToken: process.env.NATIVENOTIFY_APP_TOKEN,
+       title: "Order Received",
+       body: `Order recieved process it`,
+     });
 
     res.status(201).json({
       message: "Order saved & notification sent",
